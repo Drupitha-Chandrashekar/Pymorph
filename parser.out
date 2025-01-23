@@ -1,0 +1,1067 @@
+Created by PLY version 3.11 (http://www.dabeaz.com/ply)
+
+Grammar
+
+Rule 0     S' -> program
+Rule 1     program -> statement_list
+Rule 2     statement_list -> statement_list statement
+Rule 3     statement_list -> statement
+Rule 4     statement -> if_statement
+Rule 5     statement -> assign_statement
+Rule 6     statement -> for_statement
+Rule 7     statement -> while_statement
+Rule 8     statement -> print_statement
+Rule 9     if_statement -> IF expression THEN statement_list END
+Rule 10    if_statement -> IF expression THEN statement_list ELSE statement_list END
+Rule 11    if_statement -> IF expression THEN statement_list ELIF expression THEN statement_list END
+Rule 12    assign_statement -> IDENTIFIER ASSIGN expression
+Rule 13    for_statement -> FOR IDENTIFIER ASSIGN NUMBER TO NUMBER THEN statement_list END
+Rule 14    while_statement -> WHILE expression THEN statement_list END
+Rule 15    print_statement -> PRINT expression
+Rule 16    expression -> IDENTIFIER GREATER_THAN NUMBER
+Rule 17    expression -> IDENTIFIER LESS_THAN NUMBER
+Rule 18    expression -> IDENTIFIER EQUALS NUMBER
+Rule 19    expression -> expression PLUS expression
+Rule 20    expression -> expression MINUS expression
+Rule 21    expression -> NUMBER
+Rule 22    expression -> IDENTIFIER
+Rule 23    expression -> STRING
+
+Terminals, with rules where they appear
+
+ASSIGN               : 12 13
+ELIF                 : 11
+ELSE                 : 10
+END                  : 9 10 11 13 14
+EQUALS               : 18
+FOR                  : 13
+GREATER_THAN         : 16
+IDENTIFIER           : 12 13 16 17 18 22
+IF                   : 9 10 11
+LESS_THAN            : 17
+MINUS                : 20
+NUMBER               : 13 13 16 17 18 21
+PLUS                 : 19
+PRINT                : 15
+STRING               : 23
+THEN                 : 9 10 11 11 13 14
+TO                   : 13
+WHILE                : 14
+error                : 
+
+Nonterminals, with rules where they appear
+
+assign_statement     : 5
+expression           : 9 10 11 11 12 14 15 19 19 20 20
+for_statement        : 6
+if_statement         : 4
+print_statement      : 8
+program              : 0
+statement            : 2 3
+statement_list       : 1 2 9 10 10 11 11 13 14
+while_statement      : 7
+
+Parsing method: LALR
+
+state 0
+
+    (0) S' -> . program
+    (1) program -> . statement_list
+    (2) statement_list -> . statement_list statement
+    (3) statement_list -> . statement
+    (4) statement -> . if_statement
+    (5) statement -> . assign_statement
+    (6) statement -> . for_statement
+    (7) statement -> . while_statement
+    (8) statement -> . print_statement
+    (9) if_statement -> . IF expression THEN statement_list END
+    (10) if_statement -> . IF expression THEN statement_list ELSE statement_list END
+    (11) if_statement -> . IF expression THEN statement_list ELIF expression THEN statement_list END
+    (12) assign_statement -> . IDENTIFIER ASSIGN expression
+    (13) for_statement -> . FOR IDENTIFIER ASSIGN NUMBER TO NUMBER THEN statement_list END
+    (14) while_statement -> . WHILE expression THEN statement_list END
+    (15) print_statement -> . PRINT expression
+
+    IF              shift and go to state 9
+    IDENTIFIER      shift and go to state 10
+    FOR             shift and go to state 11
+    WHILE           shift and go to state 12
+    PRINT           shift and go to state 13
+
+    program                        shift and go to state 1
+    statement_list                 shift and go to state 2
+    statement                      shift and go to state 3
+    if_statement                   shift and go to state 4
+    assign_statement               shift and go to state 5
+    for_statement                  shift and go to state 6
+    while_statement                shift and go to state 7
+    print_statement                shift and go to state 8
+
+state 1
+
+    (0) S' -> program .
+
+
+
+state 2
+
+    (1) program -> statement_list .
+    (2) statement_list -> statement_list . statement
+    (4) statement -> . if_statement
+    (5) statement -> . assign_statement
+    (6) statement -> . for_statement
+    (7) statement -> . while_statement
+    (8) statement -> . print_statement
+    (9) if_statement -> . IF expression THEN statement_list END
+    (10) if_statement -> . IF expression THEN statement_list ELSE statement_list END
+    (11) if_statement -> . IF expression THEN statement_list ELIF expression THEN statement_list END
+    (12) assign_statement -> . IDENTIFIER ASSIGN expression
+    (13) for_statement -> . FOR IDENTIFIER ASSIGN NUMBER TO NUMBER THEN statement_list END
+    (14) while_statement -> . WHILE expression THEN statement_list END
+    (15) print_statement -> . PRINT expression
+
+    $end            reduce using rule 1 (program -> statement_list .)
+    IF              shift and go to state 9
+    IDENTIFIER      shift and go to state 10
+    FOR             shift and go to state 11
+    WHILE           shift and go to state 12
+    PRINT           shift and go to state 13
+
+    statement                      shift and go to state 14
+    if_statement                   shift and go to state 4
+    assign_statement               shift and go to state 5
+    for_statement                  shift and go to state 6
+    while_statement                shift and go to state 7
+    print_statement                shift and go to state 8
+
+state 3
+
+    (3) statement_list -> statement .
+
+    IF              reduce using rule 3 (statement_list -> statement .)
+    IDENTIFIER      reduce using rule 3 (statement_list -> statement .)
+    FOR             reduce using rule 3 (statement_list -> statement .)
+    WHILE           reduce using rule 3 (statement_list -> statement .)
+    PRINT           reduce using rule 3 (statement_list -> statement .)
+    $end            reduce using rule 3 (statement_list -> statement .)
+    END             reduce using rule 3 (statement_list -> statement .)
+    ELSE            reduce using rule 3 (statement_list -> statement .)
+    ELIF            reduce using rule 3 (statement_list -> statement .)
+
+
+state 4
+
+    (4) statement -> if_statement .
+
+    IF              reduce using rule 4 (statement -> if_statement .)
+    IDENTIFIER      reduce using rule 4 (statement -> if_statement .)
+    FOR             reduce using rule 4 (statement -> if_statement .)
+    WHILE           reduce using rule 4 (statement -> if_statement .)
+    PRINT           reduce using rule 4 (statement -> if_statement .)
+    $end            reduce using rule 4 (statement -> if_statement .)
+    END             reduce using rule 4 (statement -> if_statement .)
+    ELSE            reduce using rule 4 (statement -> if_statement .)
+    ELIF            reduce using rule 4 (statement -> if_statement .)
+
+
+state 5
+
+    (5) statement -> assign_statement .
+
+    IF              reduce using rule 5 (statement -> assign_statement .)
+    IDENTIFIER      reduce using rule 5 (statement -> assign_statement .)
+    FOR             reduce using rule 5 (statement -> assign_statement .)
+    WHILE           reduce using rule 5 (statement -> assign_statement .)
+    PRINT           reduce using rule 5 (statement -> assign_statement .)
+    $end            reduce using rule 5 (statement -> assign_statement .)
+    END             reduce using rule 5 (statement -> assign_statement .)
+    ELSE            reduce using rule 5 (statement -> assign_statement .)
+    ELIF            reduce using rule 5 (statement -> assign_statement .)
+
+
+state 6
+
+    (6) statement -> for_statement .
+
+    IF              reduce using rule 6 (statement -> for_statement .)
+    IDENTIFIER      reduce using rule 6 (statement -> for_statement .)
+    FOR             reduce using rule 6 (statement -> for_statement .)
+    WHILE           reduce using rule 6 (statement -> for_statement .)
+    PRINT           reduce using rule 6 (statement -> for_statement .)
+    $end            reduce using rule 6 (statement -> for_statement .)
+    END             reduce using rule 6 (statement -> for_statement .)
+    ELSE            reduce using rule 6 (statement -> for_statement .)
+    ELIF            reduce using rule 6 (statement -> for_statement .)
+
+
+state 7
+
+    (7) statement -> while_statement .
+
+    IF              reduce using rule 7 (statement -> while_statement .)
+    IDENTIFIER      reduce using rule 7 (statement -> while_statement .)
+    FOR             reduce using rule 7 (statement -> while_statement .)
+    WHILE           reduce using rule 7 (statement -> while_statement .)
+    PRINT           reduce using rule 7 (statement -> while_statement .)
+    $end            reduce using rule 7 (statement -> while_statement .)
+    END             reduce using rule 7 (statement -> while_statement .)
+    ELSE            reduce using rule 7 (statement -> while_statement .)
+    ELIF            reduce using rule 7 (statement -> while_statement .)
+
+
+state 8
+
+    (8) statement -> print_statement .
+
+    IF              reduce using rule 8 (statement -> print_statement .)
+    IDENTIFIER      reduce using rule 8 (statement -> print_statement .)
+    FOR             reduce using rule 8 (statement -> print_statement .)
+    WHILE           reduce using rule 8 (statement -> print_statement .)
+    PRINT           reduce using rule 8 (statement -> print_statement .)
+    $end            reduce using rule 8 (statement -> print_statement .)
+    END             reduce using rule 8 (statement -> print_statement .)
+    ELSE            reduce using rule 8 (statement -> print_statement .)
+    ELIF            reduce using rule 8 (statement -> print_statement .)
+
+
+state 9
+
+    (9) if_statement -> IF . expression THEN statement_list END
+    (10) if_statement -> IF . expression THEN statement_list ELSE statement_list END
+    (11) if_statement -> IF . expression THEN statement_list ELIF expression THEN statement_list END
+    (16) expression -> . IDENTIFIER GREATER_THAN NUMBER
+    (17) expression -> . IDENTIFIER LESS_THAN NUMBER
+    (18) expression -> . IDENTIFIER EQUALS NUMBER
+    (19) expression -> . expression PLUS expression
+    (20) expression -> . expression MINUS expression
+    (21) expression -> . NUMBER
+    (22) expression -> . IDENTIFIER
+    (23) expression -> . STRING
+
+    IDENTIFIER      shift and go to state 16
+    NUMBER          shift and go to state 17
+    STRING          shift and go to state 18
+
+    expression                     shift and go to state 15
+
+state 10
+
+    (12) assign_statement -> IDENTIFIER . ASSIGN expression
+
+    ASSIGN          shift and go to state 19
+
+
+state 11
+
+    (13) for_statement -> FOR . IDENTIFIER ASSIGN NUMBER TO NUMBER THEN statement_list END
+
+    IDENTIFIER      shift and go to state 20
+
+
+state 12
+
+    (14) while_statement -> WHILE . expression THEN statement_list END
+    (16) expression -> . IDENTIFIER GREATER_THAN NUMBER
+    (17) expression -> . IDENTIFIER LESS_THAN NUMBER
+    (18) expression -> . IDENTIFIER EQUALS NUMBER
+    (19) expression -> . expression PLUS expression
+    (20) expression -> . expression MINUS expression
+    (21) expression -> . NUMBER
+    (22) expression -> . IDENTIFIER
+    (23) expression -> . STRING
+
+    IDENTIFIER      shift and go to state 16
+    NUMBER          shift and go to state 17
+    STRING          shift and go to state 18
+
+    expression                     shift and go to state 21
+
+state 13
+
+    (15) print_statement -> PRINT . expression
+    (16) expression -> . IDENTIFIER GREATER_THAN NUMBER
+    (17) expression -> . IDENTIFIER LESS_THAN NUMBER
+    (18) expression -> . IDENTIFIER EQUALS NUMBER
+    (19) expression -> . expression PLUS expression
+    (20) expression -> . expression MINUS expression
+    (21) expression -> . NUMBER
+    (22) expression -> . IDENTIFIER
+    (23) expression -> . STRING
+
+    IDENTIFIER      shift and go to state 16
+    NUMBER          shift and go to state 17
+    STRING          shift and go to state 18
+
+    expression                     shift and go to state 22
+
+state 14
+
+    (2) statement_list -> statement_list statement .
+
+    IF              reduce using rule 2 (statement_list -> statement_list statement .)
+    IDENTIFIER      reduce using rule 2 (statement_list -> statement_list statement .)
+    FOR             reduce using rule 2 (statement_list -> statement_list statement .)
+    WHILE           reduce using rule 2 (statement_list -> statement_list statement .)
+    PRINT           reduce using rule 2 (statement_list -> statement_list statement .)
+    $end            reduce using rule 2 (statement_list -> statement_list statement .)
+    END             reduce using rule 2 (statement_list -> statement_list statement .)
+    ELSE            reduce using rule 2 (statement_list -> statement_list statement .)
+    ELIF            reduce using rule 2 (statement_list -> statement_list statement .)
+
+
+state 15
+
+    (9) if_statement -> IF expression . THEN statement_list END
+    (10) if_statement -> IF expression . THEN statement_list ELSE statement_list END
+    (11) if_statement -> IF expression . THEN statement_list ELIF expression THEN statement_list END
+    (19) expression -> expression . PLUS expression
+    (20) expression -> expression . MINUS expression
+
+    THEN            shift and go to state 23
+    PLUS            shift and go to state 24
+    MINUS           shift and go to state 25
+
+
+state 16
+
+    (16) expression -> IDENTIFIER . GREATER_THAN NUMBER
+    (17) expression -> IDENTIFIER . LESS_THAN NUMBER
+    (18) expression -> IDENTIFIER . EQUALS NUMBER
+    (22) expression -> IDENTIFIER .
+
+    GREATER_THAN    shift and go to state 26
+    LESS_THAN       shift and go to state 27
+    EQUALS          shift and go to state 28
+    THEN            reduce using rule 22 (expression -> IDENTIFIER .)
+    PLUS            reduce using rule 22 (expression -> IDENTIFIER .)
+    MINUS           reduce using rule 22 (expression -> IDENTIFIER .)
+    IF              reduce using rule 22 (expression -> IDENTIFIER .)
+    IDENTIFIER      reduce using rule 22 (expression -> IDENTIFIER .)
+    FOR             reduce using rule 22 (expression -> IDENTIFIER .)
+    WHILE           reduce using rule 22 (expression -> IDENTIFIER .)
+    PRINT           reduce using rule 22 (expression -> IDENTIFIER .)
+    $end            reduce using rule 22 (expression -> IDENTIFIER .)
+    END             reduce using rule 22 (expression -> IDENTIFIER .)
+    ELSE            reduce using rule 22 (expression -> IDENTIFIER .)
+    ELIF            reduce using rule 22 (expression -> IDENTIFIER .)
+
+
+state 17
+
+    (21) expression -> NUMBER .
+
+    THEN            reduce using rule 21 (expression -> NUMBER .)
+    PLUS            reduce using rule 21 (expression -> NUMBER .)
+    MINUS           reduce using rule 21 (expression -> NUMBER .)
+    IF              reduce using rule 21 (expression -> NUMBER .)
+    IDENTIFIER      reduce using rule 21 (expression -> NUMBER .)
+    FOR             reduce using rule 21 (expression -> NUMBER .)
+    WHILE           reduce using rule 21 (expression -> NUMBER .)
+    PRINT           reduce using rule 21 (expression -> NUMBER .)
+    $end            reduce using rule 21 (expression -> NUMBER .)
+    END             reduce using rule 21 (expression -> NUMBER .)
+    ELSE            reduce using rule 21 (expression -> NUMBER .)
+    ELIF            reduce using rule 21 (expression -> NUMBER .)
+
+
+state 18
+
+    (23) expression -> STRING .
+
+    THEN            reduce using rule 23 (expression -> STRING .)
+    PLUS            reduce using rule 23 (expression -> STRING .)
+    MINUS           reduce using rule 23 (expression -> STRING .)
+    IF              reduce using rule 23 (expression -> STRING .)
+    IDENTIFIER      reduce using rule 23 (expression -> STRING .)
+    FOR             reduce using rule 23 (expression -> STRING .)
+    WHILE           reduce using rule 23 (expression -> STRING .)
+    PRINT           reduce using rule 23 (expression -> STRING .)
+    $end            reduce using rule 23 (expression -> STRING .)
+    END             reduce using rule 23 (expression -> STRING .)
+    ELSE            reduce using rule 23 (expression -> STRING .)
+    ELIF            reduce using rule 23 (expression -> STRING .)
+
+
+state 19
+
+    (12) assign_statement -> IDENTIFIER ASSIGN . expression
+    (16) expression -> . IDENTIFIER GREATER_THAN NUMBER
+    (17) expression -> . IDENTIFIER LESS_THAN NUMBER
+    (18) expression -> . IDENTIFIER EQUALS NUMBER
+    (19) expression -> . expression PLUS expression
+    (20) expression -> . expression MINUS expression
+    (21) expression -> . NUMBER
+    (22) expression -> . IDENTIFIER
+    (23) expression -> . STRING
+
+    IDENTIFIER      shift and go to state 16
+    NUMBER          shift and go to state 17
+    STRING          shift and go to state 18
+
+    expression                     shift and go to state 29
+
+state 20
+
+    (13) for_statement -> FOR IDENTIFIER . ASSIGN NUMBER TO NUMBER THEN statement_list END
+
+    ASSIGN          shift and go to state 30
+
+
+state 21
+
+    (14) while_statement -> WHILE expression . THEN statement_list END
+    (19) expression -> expression . PLUS expression
+    (20) expression -> expression . MINUS expression
+
+    THEN            shift and go to state 31
+    PLUS            shift and go to state 24
+    MINUS           shift and go to state 25
+
+
+state 22
+
+    (15) print_statement -> PRINT expression .
+    (19) expression -> expression . PLUS expression
+    (20) expression -> expression . MINUS expression
+
+    IF              reduce using rule 15 (print_statement -> PRINT expression .)
+    IDENTIFIER      reduce using rule 15 (print_statement -> PRINT expression .)
+    FOR             reduce using rule 15 (print_statement -> PRINT expression .)
+    WHILE           reduce using rule 15 (print_statement -> PRINT expression .)
+    PRINT           reduce using rule 15 (print_statement -> PRINT expression .)
+    $end            reduce using rule 15 (print_statement -> PRINT expression .)
+    END             reduce using rule 15 (print_statement -> PRINT expression .)
+    ELSE            reduce using rule 15 (print_statement -> PRINT expression .)
+    ELIF            reduce using rule 15 (print_statement -> PRINT expression .)
+    PLUS            shift and go to state 24
+    MINUS           shift and go to state 25
+
+
+state 23
+
+    (9) if_statement -> IF expression THEN . statement_list END
+    (10) if_statement -> IF expression THEN . statement_list ELSE statement_list END
+    (11) if_statement -> IF expression THEN . statement_list ELIF expression THEN statement_list END
+    (2) statement_list -> . statement_list statement
+    (3) statement_list -> . statement
+    (4) statement -> . if_statement
+    (5) statement -> . assign_statement
+    (6) statement -> . for_statement
+    (7) statement -> . while_statement
+    (8) statement -> . print_statement
+    (9) if_statement -> . IF expression THEN statement_list END
+    (10) if_statement -> . IF expression THEN statement_list ELSE statement_list END
+    (11) if_statement -> . IF expression THEN statement_list ELIF expression THEN statement_list END
+    (12) assign_statement -> . IDENTIFIER ASSIGN expression
+    (13) for_statement -> . FOR IDENTIFIER ASSIGN NUMBER TO NUMBER THEN statement_list END
+    (14) while_statement -> . WHILE expression THEN statement_list END
+    (15) print_statement -> . PRINT expression
+
+    IF              shift and go to state 9
+    IDENTIFIER      shift and go to state 10
+    FOR             shift and go to state 11
+    WHILE           shift and go to state 12
+    PRINT           shift and go to state 13
+
+    statement_list                 shift and go to state 32
+    statement                      shift and go to state 3
+    if_statement                   shift and go to state 4
+    assign_statement               shift and go to state 5
+    for_statement                  shift and go to state 6
+    while_statement                shift and go to state 7
+    print_statement                shift and go to state 8
+
+state 24
+
+    (19) expression -> expression PLUS . expression
+    (16) expression -> . IDENTIFIER GREATER_THAN NUMBER
+    (17) expression -> . IDENTIFIER LESS_THAN NUMBER
+    (18) expression -> . IDENTIFIER EQUALS NUMBER
+    (19) expression -> . expression PLUS expression
+    (20) expression -> . expression MINUS expression
+    (21) expression -> . NUMBER
+    (22) expression -> . IDENTIFIER
+    (23) expression -> . STRING
+
+    IDENTIFIER      shift and go to state 16
+    NUMBER          shift and go to state 17
+    STRING          shift and go to state 18
+
+    expression                     shift and go to state 33
+
+state 25
+
+    (20) expression -> expression MINUS . expression
+    (16) expression -> . IDENTIFIER GREATER_THAN NUMBER
+    (17) expression -> . IDENTIFIER LESS_THAN NUMBER
+    (18) expression -> . IDENTIFIER EQUALS NUMBER
+    (19) expression -> . expression PLUS expression
+    (20) expression -> . expression MINUS expression
+    (21) expression -> . NUMBER
+    (22) expression -> . IDENTIFIER
+    (23) expression -> . STRING
+
+    IDENTIFIER      shift and go to state 16
+    NUMBER          shift and go to state 17
+    STRING          shift and go to state 18
+
+    expression                     shift and go to state 34
+
+state 26
+
+    (16) expression -> IDENTIFIER GREATER_THAN . NUMBER
+
+    NUMBER          shift and go to state 35
+
+
+state 27
+
+    (17) expression -> IDENTIFIER LESS_THAN . NUMBER
+
+    NUMBER          shift and go to state 36
+
+
+state 28
+
+    (18) expression -> IDENTIFIER EQUALS . NUMBER
+
+    NUMBER          shift and go to state 37
+
+
+state 29
+
+    (12) assign_statement -> IDENTIFIER ASSIGN expression .
+    (19) expression -> expression . PLUS expression
+    (20) expression -> expression . MINUS expression
+
+    IF              reduce using rule 12 (assign_statement -> IDENTIFIER ASSIGN expression .)
+    IDENTIFIER      reduce using rule 12 (assign_statement -> IDENTIFIER ASSIGN expression .)
+    FOR             reduce using rule 12 (assign_statement -> IDENTIFIER ASSIGN expression .)
+    WHILE           reduce using rule 12 (assign_statement -> IDENTIFIER ASSIGN expression .)
+    PRINT           reduce using rule 12 (assign_statement -> IDENTIFIER ASSIGN expression .)
+    $end            reduce using rule 12 (assign_statement -> IDENTIFIER ASSIGN expression .)
+    END             reduce using rule 12 (assign_statement -> IDENTIFIER ASSIGN expression .)
+    ELSE            reduce using rule 12 (assign_statement -> IDENTIFIER ASSIGN expression .)
+    ELIF            reduce using rule 12 (assign_statement -> IDENTIFIER ASSIGN expression .)
+    PLUS            shift and go to state 24
+    MINUS           shift and go to state 25
+
+
+state 30
+
+    (13) for_statement -> FOR IDENTIFIER ASSIGN . NUMBER TO NUMBER THEN statement_list END
+
+    NUMBER          shift and go to state 38
+
+
+state 31
+
+    (14) while_statement -> WHILE expression THEN . statement_list END
+    (2) statement_list -> . statement_list statement
+    (3) statement_list -> . statement
+    (4) statement -> . if_statement
+    (5) statement -> . assign_statement
+    (6) statement -> . for_statement
+    (7) statement -> . while_statement
+    (8) statement -> . print_statement
+    (9) if_statement -> . IF expression THEN statement_list END
+    (10) if_statement -> . IF expression THEN statement_list ELSE statement_list END
+    (11) if_statement -> . IF expression THEN statement_list ELIF expression THEN statement_list END
+    (12) assign_statement -> . IDENTIFIER ASSIGN expression
+    (13) for_statement -> . FOR IDENTIFIER ASSIGN NUMBER TO NUMBER THEN statement_list END
+    (14) while_statement -> . WHILE expression THEN statement_list END
+    (15) print_statement -> . PRINT expression
+
+    IF              shift and go to state 9
+    IDENTIFIER      shift and go to state 10
+    FOR             shift and go to state 11
+    WHILE           shift and go to state 12
+    PRINT           shift and go to state 13
+
+    statement_list                 shift and go to state 39
+    statement                      shift and go to state 3
+    if_statement                   shift and go to state 4
+    assign_statement               shift and go to state 5
+    for_statement                  shift and go to state 6
+    while_statement                shift and go to state 7
+    print_statement                shift and go to state 8
+
+state 32
+
+    (9) if_statement -> IF expression THEN statement_list . END
+    (10) if_statement -> IF expression THEN statement_list . ELSE statement_list END
+    (11) if_statement -> IF expression THEN statement_list . ELIF expression THEN statement_list END
+    (2) statement_list -> statement_list . statement
+    (4) statement -> . if_statement
+    (5) statement -> . assign_statement
+    (6) statement -> . for_statement
+    (7) statement -> . while_statement
+    (8) statement -> . print_statement
+    (9) if_statement -> . IF expression THEN statement_list END
+    (10) if_statement -> . IF expression THEN statement_list ELSE statement_list END
+    (11) if_statement -> . IF expression THEN statement_list ELIF expression THEN statement_list END
+    (12) assign_statement -> . IDENTIFIER ASSIGN expression
+    (13) for_statement -> . FOR IDENTIFIER ASSIGN NUMBER TO NUMBER THEN statement_list END
+    (14) while_statement -> . WHILE expression THEN statement_list END
+    (15) print_statement -> . PRINT expression
+
+    END             shift and go to state 40
+    ELSE            shift and go to state 41
+    ELIF            shift and go to state 42
+    IF              shift and go to state 9
+    IDENTIFIER      shift and go to state 10
+    FOR             shift and go to state 11
+    WHILE           shift and go to state 12
+    PRINT           shift and go to state 13
+
+    statement                      shift and go to state 14
+    if_statement                   shift and go to state 4
+    assign_statement               shift and go to state 5
+    for_statement                  shift and go to state 6
+    while_statement                shift and go to state 7
+    print_statement                shift and go to state 8
+
+state 33
+
+    (19) expression -> expression PLUS expression .
+    (19) expression -> expression . PLUS expression
+    (20) expression -> expression . MINUS expression
+
+    THEN            reduce using rule 19 (expression -> expression PLUS expression .)
+    PLUS            reduce using rule 19 (expression -> expression PLUS expression .)
+    MINUS           reduce using rule 19 (expression -> expression PLUS expression .)
+    IF              reduce using rule 19 (expression -> expression PLUS expression .)
+    IDENTIFIER      reduce using rule 19 (expression -> expression PLUS expression .)
+    FOR             reduce using rule 19 (expression -> expression PLUS expression .)
+    WHILE           reduce using rule 19 (expression -> expression PLUS expression .)
+    PRINT           reduce using rule 19 (expression -> expression PLUS expression .)
+    $end            reduce using rule 19 (expression -> expression PLUS expression .)
+    END             reduce using rule 19 (expression -> expression PLUS expression .)
+    ELSE            reduce using rule 19 (expression -> expression PLUS expression .)
+    ELIF            reduce using rule 19 (expression -> expression PLUS expression .)
+
+  ! PLUS            [ shift and go to state 24 ]
+  ! MINUS           [ shift and go to state 25 ]
+
+
+state 34
+
+    (20) expression -> expression MINUS expression .
+    (19) expression -> expression . PLUS expression
+    (20) expression -> expression . MINUS expression
+
+    THEN            reduce using rule 20 (expression -> expression MINUS expression .)
+    PLUS            reduce using rule 20 (expression -> expression MINUS expression .)
+    MINUS           reduce using rule 20 (expression -> expression MINUS expression .)
+    IF              reduce using rule 20 (expression -> expression MINUS expression .)
+    IDENTIFIER      reduce using rule 20 (expression -> expression MINUS expression .)
+    FOR             reduce using rule 20 (expression -> expression MINUS expression .)
+    WHILE           reduce using rule 20 (expression -> expression MINUS expression .)
+    PRINT           reduce using rule 20 (expression -> expression MINUS expression .)
+    $end            reduce using rule 20 (expression -> expression MINUS expression .)
+    END             reduce using rule 20 (expression -> expression MINUS expression .)
+    ELSE            reduce using rule 20 (expression -> expression MINUS expression .)
+    ELIF            reduce using rule 20 (expression -> expression MINUS expression .)
+
+  ! PLUS            [ shift and go to state 24 ]
+  ! MINUS           [ shift and go to state 25 ]
+
+
+state 35
+
+    (16) expression -> IDENTIFIER GREATER_THAN NUMBER .
+
+    THEN            reduce using rule 16 (expression -> IDENTIFIER GREATER_THAN NUMBER .)
+    PLUS            reduce using rule 16 (expression -> IDENTIFIER GREATER_THAN NUMBER .)
+    MINUS           reduce using rule 16 (expression -> IDENTIFIER GREATER_THAN NUMBER .)
+    IF              reduce using rule 16 (expression -> IDENTIFIER GREATER_THAN NUMBER .)
+    IDENTIFIER      reduce using rule 16 (expression -> IDENTIFIER GREATER_THAN NUMBER .)
+    FOR             reduce using rule 16 (expression -> IDENTIFIER GREATER_THAN NUMBER .)
+    WHILE           reduce using rule 16 (expression -> IDENTIFIER GREATER_THAN NUMBER .)
+    PRINT           reduce using rule 16 (expression -> IDENTIFIER GREATER_THAN NUMBER .)
+    $end            reduce using rule 16 (expression -> IDENTIFIER GREATER_THAN NUMBER .)
+    END             reduce using rule 16 (expression -> IDENTIFIER GREATER_THAN NUMBER .)
+    ELSE            reduce using rule 16 (expression -> IDENTIFIER GREATER_THAN NUMBER .)
+    ELIF            reduce using rule 16 (expression -> IDENTIFIER GREATER_THAN NUMBER .)
+
+
+state 36
+
+    (17) expression -> IDENTIFIER LESS_THAN NUMBER .
+
+    THEN            reduce using rule 17 (expression -> IDENTIFIER LESS_THAN NUMBER .)
+    PLUS            reduce using rule 17 (expression -> IDENTIFIER LESS_THAN NUMBER .)
+    MINUS           reduce using rule 17 (expression -> IDENTIFIER LESS_THAN NUMBER .)
+    IF              reduce using rule 17 (expression -> IDENTIFIER LESS_THAN NUMBER .)
+    IDENTIFIER      reduce using rule 17 (expression -> IDENTIFIER LESS_THAN NUMBER .)
+    FOR             reduce using rule 17 (expression -> IDENTIFIER LESS_THAN NUMBER .)
+    WHILE           reduce using rule 17 (expression -> IDENTIFIER LESS_THAN NUMBER .)
+    PRINT           reduce using rule 17 (expression -> IDENTIFIER LESS_THAN NUMBER .)
+    $end            reduce using rule 17 (expression -> IDENTIFIER LESS_THAN NUMBER .)
+    END             reduce using rule 17 (expression -> IDENTIFIER LESS_THAN NUMBER .)
+    ELSE            reduce using rule 17 (expression -> IDENTIFIER LESS_THAN NUMBER .)
+    ELIF            reduce using rule 17 (expression -> IDENTIFIER LESS_THAN NUMBER .)
+
+
+state 37
+
+    (18) expression -> IDENTIFIER EQUALS NUMBER .
+
+    THEN            reduce using rule 18 (expression -> IDENTIFIER EQUALS NUMBER .)
+    PLUS            reduce using rule 18 (expression -> IDENTIFIER EQUALS NUMBER .)
+    MINUS           reduce using rule 18 (expression -> IDENTIFIER EQUALS NUMBER .)
+    IF              reduce using rule 18 (expression -> IDENTIFIER EQUALS NUMBER .)
+    IDENTIFIER      reduce using rule 18 (expression -> IDENTIFIER EQUALS NUMBER .)
+    FOR             reduce using rule 18 (expression -> IDENTIFIER EQUALS NUMBER .)
+    WHILE           reduce using rule 18 (expression -> IDENTIFIER EQUALS NUMBER .)
+    PRINT           reduce using rule 18 (expression -> IDENTIFIER EQUALS NUMBER .)
+    $end            reduce using rule 18 (expression -> IDENTIFIER EQUALS NUMBER .)
+    END             reduce using rule 18 (expression -> IDENTIFIER EQUALS NUMBER .)
+    ELSE            reduce using rule 18 (expression -> IDENTIFIER EQUALS NUMBER .)
+    ELIF            reduce using rule 18 (expression -> IDENTIFIER EQUALS NUMBER .)
+
+
+state 38
+
+    (13) for_statement -> FOR IDENTIFIER ASSIGN NUMBER . TO NUMBER THEN statement_list END
+
+    TO              shift and go to state 43
+
+
+state 39
+
+    (14) while_statement -> WHILE expression THEN statement_list . END
+    (2) statement_list -> statement_list . statement
+    (4) statement -> . if_statement
+    (5) statement -> . assign_statement
+    (6) statement -> . for_statement
+    (7) statement -> . while_statement
+    (8) statement -> . print_statement
+    (9) if_statement -> . IF expression THEN statement_list END
+    (10) if_statement -> . IF expression THEN statement_list ELSE statement_list END
+    (11) if_statement -> . IF expression THEN statement_list ELIF expression THEN statement_list END
+    (12) assign_statement -> . IDENTIFIER ASSIGN expression
+    (13) for_statement -> . FOR IDENTIFIER ASSIGN NUMBER TO NUMBER THEN statement_list END
+    (14) while_statement -> . WHILE expression THEN statement_list END
+    (15) print_statement -> . PRINT expression
+
+    END             shift and go to state 44
+    IF              shift and go to state 9
+    IDENTIFIER      shift and go to state 10
+    FOR             shift and go to state 11
+    WHILE           shift and go to state 12
+    PRINT           shift and go to state 13
+
+    statement                      shift and go to state 14
+    if_statement                   shift and go to state 4
+    assign_statement               shift and go to state 5
+    for_statement                  shift and go to state 6
+    while_statement                shift and go to state 7
+    print_statement                shift and go to state 8
+
+state 40
+
+    (9) if_statement -> IF expression THEN statement_list END .
+
+    IF              reduce using rule 9 (if_statement -> IF expression THEN statement_list END .)
+    IDENTIFIER      reduce using rule 9 (if_statement -> IF expression THEN statement_list END .)
+    FOR             reduce using rule 9 (if_statement -> IF expression THEN statement_list END .)
+    WHILE           reduce using rule 9 (if_statement -> IF expression THEN statement_list END .)
+    PRINT           reduce using rule 9 (if_statement -> IF expression THEN statement_list END .)
+    $end            reduce using rule 9 (if_statement -> IF expression THEN statement_list END .)
+    END             reduce using rule 9 (if_statement -> IF expression THEN statement_list END .)
+    ELSE            reduce using rule 9 (if_statement -> IF expression THEN statement_list END .)
+    ELIF            reduce using rule 9 (if_statement -> IF expression THEN statement_list END .)
+
+
+state 41
+
+    (10) if_statement -> IF expression THEN statement_list ELSE . statement_list END
+    (2) statement_list -> . statement_list statement
+    (3) statement_list -> . statement
+    (4) statement -> . if_statement
+    (5) statement -> . assign_statement
+    (6) statement -> . for_statement
+    (7) statement -> . while_statement
+    (8) statement -> . print_statement
+    (9) if_statement -> . IF expression THEN statement_list END
+    (10) if_statement -> . IF expression THEN statement_list ELSE statement_list END
+    (11) if_statement -> . IF expression THEN statement_list ELIF expression THEN statement_list END
+    (12) assign_statement -> . IDENTIFIER ASSIGN expression
+    (13) for_statement -> . FOR IDENTIFIER ASSIGN NUMBER TO NUMBER THEN statement_list END
+    (14) while_statement -> . WHILE expression THEN statement_list END
+    (15) print_statement -> . PRINT expression
+
+    IF              shift and go to state 9
+    IDENTIFIER      shift and go to state 10
+    FOR             shift and go to state 11
+    WHILE           shift and go to state 12
+    PRINT           shift and go to state 13
+
+    statement_list                 shift and go to state 45
+    statement                      shift and go to state 3
+    if_statement                   shift and go to state 4
+    assign_statement               shift and go to state 5
+    for_statement                  shift and go to state 6
+    while_statement                shift and go to state 7
+    print_statement                shift and go to state 8
+
+state 42
+
+    (11) if_statement -> IF expression THEN statement_list ELIF . expression THEN statement_list END
+    (16) expression -> . IDENTIFIER GREATER_THAN NUMBER
+    (17) expression -> . IDENTIFIER LESS_THAN NUMBER
+    (18) expression -> . IDENTIFIER EQUALS NUMBER
+    (19) expression -> . expression PLUS expression
+    (20) expression -> . expression MINUS expression
+    (21) expression -> . NUMBER
+    (22) expression -> . IDENTIFIER
+    (23) expression -> . STRING
+
+    IDENTIFIER      shift and go to state 16
+    NUMBER          shift and go to state 17
+    STRING          shift and go to state 18
+
+    expression                     shift and go to state 46
+
+state 43
+
+    (13) for_statement -> FOR IDENTIFIER ASSIGN NUMBER TO . NUMBER THEN statement_list END
+
+    NUMBER          shift and go to state 47
+
+
+state 44
+
+    (14) while_statement -> WHILE expression THEN statement_list END .
+
+    IF              reduce using rule 14 (while_statement -> WHILE expression THEN statement_list END .)
+    IDENTIFIER      reduce using rule 14 (while_statement -> WHILE expression THEN statement_list END .)
+    FOR             reduce using rule 14 (while_statement -> WHILE expression THEN statement_list END .)
+    WHILE           reduce using rule 14 (while_statement -> WHILE expression THEN statement_list END .)
+    PRINT           reduce using rule 14 (while_statement -> WHILE expression THEN statement_list END .)
+    $end            reduce using rule 14 (while_statement -> WHILE expression THEN statement_list END .)
+    END             reduce using rule 14 (while_statement -> WHILE expression THEN statement_list END .)
+    ELSE            reduce using rule 14 (while_statement -> WHILE expression THEN statement_list END .)
+    ELIF            reduce using rule 14 (while_statement -> WHILE expression THEN statement_list END .)
+
+
+state 45
+
+    (10) if_statement -> IF expression THEN statement_list ELSE statement_list . END
+    (2) statement_list -> statement_list . statement
+    (4) statement -> . if_statement
+    (5) statement -> . assign_statement
+    (6) statement -> . for_statement
+    (7) statement -> . while_statement
+    (8) statement -> . print_statement
+    (9) if_statement -> . IF expression THEN statement_list END
+    (10) if_statement -> . IF expression THEN statement_list ELSE statement_list END
+    (11) if_statement -> . IF expression THEN statement_list ELIF expression THEN statement_list END
+    (12) assign_statement -> . IDENTIFIER ASSIGN expression
+    (13) for_statement -> . FOR IDENTIFIER ASSIGN NUMBER TO NUMBER THEN statement_list END
+    (14) while_statement -> . WHILE expression THEN statement_list END
+    (15) print_statement -> . PRINT expression
+
+    END             shift and go to state 48
+    IF              shift and go to state 9
+    IDENTIFIER      shift and go to state 10
+    FOR             shift and go to state 11
+    WHILE           shift and go to state 12
+    PRINT           shift and go to state 13
+
+    statement                      shift and go to state 14
+    if_statement                   shift and go to state 4
+    assign_statement               shift and go to state 5
+    for_statement                  shift and go to state 6
+    while_statement                shift and go to state 7
+    print_statement                shift and go to state 8
+
+state 46
+
+    (11) if_statement -> IF expression THEN statement_list ELIF expression . THEN statement_list END
+    (19) expression -> expression . PLUS expression
+    (20) expression -> expression . MINUS expression
+
+    THEN            shift and go to state 49
+    PLUS            shift and go to state 24
+    MINUS           shift and go to state 25
+
+
+state 47
+
+    (13) for_statement -> FOR IDENTIFIER ASSIGN NUMBER TO NUMBER . THEN statement_list END
+
+    THEN            shift and go to state 50
+
+
+state 48
+
+    (10) if_statement -> IF expression THEN statement_list ELSE statement_list END .
+
+    IF              reduce using rule 10 (if_statement -> IF expression THEN statement_list ELSE statement_list END .)
+    IDENTIFIER      reduce using rule 10 (if_statement -> IF expression THEN statement_list ELSE statement_list END .)
+    FOR             reduce using rule 10 (if_statement -> IF expression THEN statement_list ELSE statement_list END .)
+    WHILE           reduce using rule 10 (if_statement -> IF expression THEN statement_list ELSE statement_list END .)
+    PRINT           reduce using rule 10 (if_statement -> IF expression THEN statement_list ELSE statement_list END .)
+    $end            reduce using rule 10 (if_statement -> IF expression THEN statement_list ELSE statement_list END .)
+    END             reduce using rule 10 (if_statement -> IF expression THEN statement_list ELSE statement_list END .)
+    ELSE            reduce using rule 10 (if_statement -> IF expression THEN statement_list ELSE statement_list END .)
+    ELIF            reduce using rule 10 (if_statement -> IF expression THEN statement_list ELSE statement_list END .)
+
+
+state 49
+
+    (11) if_statement -> IF expression THEN statement_list ELIF expression THEN . statement_list END
+    (2) statement_list -> . statement_list statement
+    (3) statement_list -> . statement
+    (4) statement -> . if_statement
+    (5) statement -> . assign_statement
+    (6) statement -> . for_statement
+    (7) statement -> . while_statement
+    (8) statement -> . print_statement
+    (9) if_statement -> . IF expression THEN statement_list END
+    (10) if_statement -> . IF expression THEN statement_list ELSE statement_list END
+    (11) if_statement -> . IF expression THEN statement_list ELIF expression THEN statement_list END
+    (12) assign_statement -> . IDENTIFIER ASSIGN expression
+    (13) for_statement -> . FOR IDENTIFIER ASSIGN NUMBER TO NUMBER THEN statement_list END
+    (14) while_statement -> . WHILE expression THEN statement_list END
+    (15) print_statement -> . PRINT expression
+
+    IF              shift and go to state 9
+    IDENTIFIER      shift and go to state 10
+    FOR             shift and go to state 11
+    WHILE           shift and go to state 12
+    PRINT           shift and go to state 13
+
+    statement_list                 shift and go to state 51
+    statement                      shift and go to state 3
+    if_statement                   shift and go to state 4
+    assign_statement               shift and go to state 5
+    for_statement                  shift and go to state 6
+    while_statement                shift and go to state 7
+    print_statement                shift and go to state 8
+
+state 50
+
+    (13) for_statement -> FOR IDENTIFIER ASSIGN NUMBER TO NUMBER THEN . statement_list END
+    (2) statement_list -> . statement_list statement
+    (3) statement_list -> . statement
+    (4) statement -> . if_statement
+    (5) statement -> . assign_statement
+    (6) statement -> . for_statement
+    (7) statement -> . while_statement
+    (8) statement -> . print_statement
+    (9) if_statement -> . IF expression THEN statement_list END
+    (10) if_statement -> . IF expression THEN statement_list ELSE statement_list END
+    (11) if_statement -> . IF expression THEN statement_list ELIF expression THEN statement_list END
+    (12) assign_statement -> . IDENTIFIER ASSIGN expression
+    (13) for_statement -> . FOR IDENTIFIER ASSIGN NUMBER TO NUMBER THEN statement_list END
+    (14) while_statement -> . WHILE expression THEN statement_list END
+    (15) print_statement -> . PRINT expression
+
+    IF              shift and go to state 9
+    IDENTIFIER      shift and go to state 10
+    FOR             shift and go to state 11
+    WHILE           shift and go to state 12
+    PRINT           shift and go to state 13
+
+    statement_list                 shift and go to state 52
+    statement                      shift and go to state 3
+    if_statement                   shift and go to state 4
+    assign_statement               shift and go to state 5
+    for_statement                  shift and go to state 6
+    while_statement                shift and go to state 7
+    print_statement                shift and go to state 8
+
+state 51
+
+    (11) if_statement -> IF expression THEN statement_list ELIF expression THEN statement_list . END
+    (2) statement_list -> statement_list . statement
+    (4) statement -> . if_statement
+    (5) statement -> . assign_statement
+    (6) statement -> . for_statement
+    (7) statement -> . while_statement
+    (8) statement -> . print_statement
+    (9) if_statement -> . IF expression THEN statement_list END
+    (10) if_statement -> . IF expression THEN statement_list ELSE statement_list END
+    (11) if_statement -> . IF expression THEN statement_list ELIF expression THEN statement_list END
+    (12) assign_statement -> . IDENTIFIER ASSIGN expression
+    (13) for_statement -> . FOR IDENTIFIER ASSIGN NUMBER TO NUMBER THEN statement_list END
+    (14) while_statement -> . WHILE expression THEN statement_list END
+    (15) print_statement -> . PRINT expression
+
+    END             shift and go to state 53
+    IF              shift and go to state 9
+    IDENTIFIER      shift and go to state 10
+    FOR             shift and go to state 11
+    WHILE           shift and go to state 12
+    PRINT           shift and go to state 13
+
+    statement                      shift and go to state 14
+    if_statement                   shift and go to state 4
+    assign_statement               shift and go to state 5
+    for_statement                  shift and go to state 6
+    while_statement                shift and go to state 7
+    print_statement                shift and go to state 8
+
+state 52
+
+    (13) for_statement -> FOR IDENTIFIER ASSIGN NUMBER TO NUMBER THEN statement_list . END
+    (2) statement_list -> statement_list . statement
+    (4) statement -> . if_statement
+    (5) statement -> . assign_statement
+    (6) statement -> . for_statement
+    (7) statement -> . while_statement
+    (8) statement -> . print_statement
+    (9) if_statement -> . IF expression THEN statement_list END
+    (10) if_statement -> . IF expression THEN statement_list ELSE statement_list END
+    (11) if_statement -> . IF expression THEN statement_list ELIF expression THEN statement_list END
+    (12) assign_statement -> . IDENTIFIER ASSIGN expression
+    (13) for_statement -> . FOR IDENTIFIER ASSIGN NUMBER TO NUMBER THEN statement_list END
+    (14) while_statement -> . WHILE expression THEN statement_list END
+    (15) print_statement -> . PRINT expression
+
+    END             shift and go to state 54
+    IF              shift and go to state 9
+    IDENTIFIER      shift and go to state 10
+    FOR             shift and go to state 11
+    WHILE           shift and go to state 12
+    PRINT           shift and go to state 13
+
+    statement                      shift and go to state 14
+    if_statement                   shift and go to state 4
+    assign_statement               shift and go to state 5
+    for_statement                  shift and go to state 6
+    while_statement                shift and go to state 7
+    print_statement                shift and go to state 8
+
+state 53
+
+    (11) if_statement -> IF expression THEN statement_list ELIF expression THEN statement_list END .
+
+    IF              reduce using rule 11 (if_statement -> IF expression THEN statement_list ELIF expression THEN statement_list END .)
+    IDENTIFIER      reduce using rule 11 (if_statement -> IF expression THEN statement_list ELIF expression THEN statement_list END .)
+    FOR             reduce using rule 11 (if_statement -> IF expression THEN statement_list ELIF expression THEN statement_list END .)
+    WHILE           reduce using rule 11 (if_statement -> IF expression THEN statement_list ELIF expression THEN statement_list END .)
+    PRINT           reduce using rule 11 (if_statement -> IF expression THEN statement_list ELIF expression THEN statement_list END .)
+    $end            reduce using rule 11 (if_statement -> IF expression THEN statement_list ELIF expression THEN statement_list END .)
+    END             reduce using rule 11 (if_statement -> IF expression THEN statement_list ELIF expression THEN statement_list END .)
+    ELSE            reduce using rule 11 (if_statement -> IF expression THEN statement_list ELIF expression THEN statement_list END .)
+    ELIF            reduce using rule 11 (if_statement -> IF expression THEN statement_list ELIF expression THEN statement_list END .)
+
+
+state 54
+
+    (13) for_statement -> FOR IDENTIFIER ASSIGN NUMBER TO NUMBER THEN statement_list END .
+
+    IF              reduce using rule 13 (for_statement -> FOR IDENTIFIER ASSIGN NUMBER TO NUMBER THEN statement_list END .)
+    IDENTIFIER      reduce using rule 13 (for_statement -> FOR IDENTIFIER ASSIGN NUMBER TO NUMBER THEN statement_list END .)
+    FOR             reduce using rule 13 (for_statement -> FOR IDENTIFIER ASSIGN NUMBER TO NUMBER THEN statement_list END .)
+    WHILE           reduce using rule 13 (for_statement -> FOR IDENTIFIER ASSIGN NUMBER TO NUMBER THEN statement_list END .)
+    PRINT           reduce using rule 13 (for_statement -> FOR IDENTIFIER ASSIGN NUMBER TO NUMBER THEN statement_list END .)
+    $end            reduce using rule 13 (for_statement -> FOR IDENTIFIER ASSIGN NUMBER TO NUMBER THEN statement_list END .)
+    END             reduce using rule 13 (for_statement -> FOR IDENTIFIER ASSIGN NUMBER TO NUMBER THEN statement_list END .)
+    ELSE            reduce using rule 13 (for_statement -> FOR IDENTIFIER ASSIGN NUMBER TO NUMBER THEN statement_list END .)
+    ELIF            reduce using rule 13 (for_statement -> FOR IDENTIFIER ASSIGN NUMBER TO NUMBER THEN statement_list END .)
+
